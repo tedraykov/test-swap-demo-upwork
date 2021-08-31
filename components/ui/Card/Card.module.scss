@@ -1,7 +1,15 @@
 .root {
-  @apply px-5 py-6 rounded-xl bg-primary-transparent;
+  @apply rounded-xl bg-primary-transparent;
+}
+
+.basic {
+  @apply px-5 py-6 lg:px-7 lg:py-8;
 }
 
 .compact {
   @apply p-5;
+}
+
+.spacious {
+  @apply px-5 py-6 lg:p-12;
 }

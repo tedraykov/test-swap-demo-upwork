@@ -1,21 +1,27 @@
 .root {
-  @apply mx-auto flex flex-col justify-center px-5 space-y-5 mt-6 lg:flex-row lg:space-y-0 lg:space-x-11;
+  @apply mx-auto flex flex-col
+  justify-center px-5 space-y-5 mt-6
+  lg:flex-row lg:space-y-0 lg:space-x-11
+  lg:mt-10 lg:mx-16
+  xl:mx-32;
   max-width: 1400px;
 }
 
+.backButton {
+  margin-right: -1rem;
+  height: fit-content;
+}
+
 .contentCard {
-  @apply my-3;
+  @apply my-3 lg:my-5;
 
   border: 0.8px solid rgba(150, 150, 150, 0.1);
 
-  p {
+  .contentCardContent {
     font-size: 11px;
     line-height: 17px;
     text-align: justify;
-  }
-
-  .barCard {
-    @apply p-2;
+    @apply lg:text-xs lg:leading-6;
   }
 }
 
@@ -24,7 +30,6 @@
     display: flex;
     align-items: center;
     font-weight: normal;
-    font-size: 9px;
     margin-left: auto;
     padding: 0;
 
@@ -35,7 +40,7 @@
 }
 
 .barHeader {
- @apply flex justify-between text-sm font-bold;
+  @apply flex justify-between text-sm font-bold;
 }
 
 .bar {
@@ -44,14 +49,14 @@
 }
 
 .voteTableHeader {
-  @apply text-xs text-accents-6 font-semibold px-4;
+  @apply text-xs text-accents-6 font-semibold px-4 lg:mb-4;
 }
 
 .cell {
-  @apply border-b border-accents-3 py-4;
+  @apply border-b border-accents-3 py-4 lg:py-2;
   font-size: 14px;
 
-  &>span {
+  & > span {
     @apply mx-4;
   }
 }

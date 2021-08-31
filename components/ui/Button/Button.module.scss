@@ -15,8 +15,20 @@
  @apply px-1;
 }
 
+.primary {
+ @apply text-primary;
+}
+
 .warning {
  @apply border border-red text-red;
+}
+
+.accent {
+ @apply border-accents-3;
+}
+
+.transparent {
+ @apply bg-primary-transparent;
 }
 
 .slim {

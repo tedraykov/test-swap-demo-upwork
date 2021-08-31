@@ -73,6 +73,9 @@ const votesData: Vote = {
 export const LandingView: FC = () => {
   return (
     <div className={s.root}>
+      <Button color='transparent' className={s.backButton}>
+        <img src="arrow-Left.svg" alt=""/>
+      </Button>
       <PostView post={postData}/>
       <Votes vote={votesData}/>
     </div>
@@ -81,41 +84,43 @@ export const LandingView: FC = () => {
 
 const PostView: FC<{ post: Post }> = ({post}) => {
   return (
-    <Card className='flex flex-col'>
+    <Card className='flex flex-col lg:max-w-md'>
       <header>
-        <h2 className='text-2xl font-bold mb-5'>{post.title}</h2>
-        <p className='text-xs'>{post.endsDate}</p>
+        <h2 className='text-2xl font-bold mb-5 lg:text-3xl lg:mb-7'>{post.title}</h2>
+        <p className='text-xs lg:text-sm'>{post.endsDate}</p>
       </header>
-      <Card className={s.contentCard}>
-        <p>{post.content}</p>
-        <div className={s.seeMoreButton}>
-          <Button slim variant='clear'>
-            <span>See more</span>
-            <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fillRule="evenodd" clipRule="evenodd"
-                    d="M1.61966 0.0350952L4.41581 2.86852L7.21196 0.0350952L7.91725 0.74363L4.41581 4.29061L0.914368 0.74363L1.61966 0.0350952Z"
-                    fill="#508FF4"/>
-            </svg>
-          </Button>
-        </div>
-      </Card>
-      <div className='text-xs text-accents-7 font-light my-4'>{post.endedDate}</div>
+      <div className='flex-1'>
+        <Card className={s.contentCard}>
+          <p className={s.contentCardContent}>{post.content}</p>
+          <div className={s.seeMoreButton}>
+            <Button slim variant='clear'>
+              <span>See more</span>
+              <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fillRule="evenodd" clipRule="evenodd"
+                      d="M1.61966 0.0350952L4.41581 2.86852L7.21196 0.0350952L7.91725 0.74363L4.41581 4.29061L0.914368 0.74363L1.61966 0.0350952Z"
+                      fill="#508FF4"/>
+              </svg>
+            </Button>
+          </div>
+        </Card>
+      </div>
+      <div className='text-xs text-accents-7 font-light my-4 lg:my-5'>{post.endedDate}</div>
       <Button
         color='warning'
-        className='font-semibold'>{post.status}</Button>
+        className='font-semibold lg: mb-2'>{post.status}</Button>
     </Card>
   )
 }
 
 const Votes: FC<{ vote: Vote }> = ({vote}) => {
   return (
-    <Card>
-      <div className='flex justify-between items-end'>
+    <Card size='spacious' className='lg:flex-1'>
+      <div className='flex justify-between items-center'>
         <div className="totalVotes">
-          <p className='text-sm'>TOTAL VOTES</p>
-          <p className='text-2xl font-bold mt-2'>{vote.totalVotes}</p>
+          <p className='text-sm lg:text-lg'>TOTAL VOTES</p>
+          <p className='text-2xl font-bold mt-2 lg:text-3xl lg:mt-4'>{vote.totalVotes}</p>
         </div>
-        <div className="creator text-xs text-right">
+        <div className="creator text-xs text-right lg:text-sm">
           <div>
             <p><strong>Identifier:</strong> {vote.identifier}</p>
           </div>
@@ -124,23 +129,23 @@ const Votes: FC<{ vote: Vote }> = ({vote}) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col mt-5">
-        <Card compact>
+      <div className="flex flex-col mt-5 space-y-4 lg:flex-row lg:space-y-0 lg:space-x-6">
+        <Card size='compact' className='flex-1'>
           <div className={s.barHeader}>
-            <span>FOR</span>
+            <span className='mr-4'>FOR</span>
             <span>{vote.forVotes}</span>
           </div>
           <div className={cn(s.bar, "bg-green")}/>
         </Card>
-        <Card className='mt-4'>
+        <Card size='compact' className='flex-1'>
           <div className={s.barHeader}>
-            <span>AGAINST</span>
+            <span className='mr-4'>AGAINST</span>
             <span>{vote.againstVotes}</span>
           </div>
           <div className={cn(s.bar, "bg-red")}/>
         </Card>
-        <VotersTable voters={vote.voters}/>
       </div>
+      <VotersTable voters={vote.voters}/>
     </Card>
   )
 }
@@ -149,7 +154,7 @@ const VotersTable: FC<{ voters: Voter[] }> = ({voters}) => {
   return (
     <div className='flex flex-col justify-center'>
       <div className='flex justify-between mt-7 overflow-x-auto'>
-        <div className='flex-1'>
+        <div className='flex flex-col flex-1'>
           <span className={s.voteTableHeader}>Voter</span>
           {
             voters.map((voter, i) =>
@@ -158,7 +163,7 @@ const VotersTable: FC<{ voters: Voter[] }> = ({voters}) => {
               </div>))
           }
         </div>
-        <div className='flex-1 text-center'>
+        <div className='flex flex-col flex-1 text-center'>
           <span className={s.voteTableHeader}>Decision</span>
 
           {
@@ -168,7 +173,7 @@ const VotersTable: FC<{ voters: Voter[] }> = ({voters}) => {
               </div>))
           }
         </div>
-        <div className='flex-1 text-right'>
+        <div className='flex flex-col flex-1 text-right lg:text-center'>
           <span className={s.voteTableHeader}>Vote Weight</span>
           {
             voters.map((voter, i) =>
@@ -178,7 +183,7 @@ const VotersTable: FC<{ voters: Voter[] }> = ({voters}) => {
           }
         </div>
       </div>
-      <div className={cn(s.seeMoreButton, 'mx-auto mt-6')}>
+      <div className={cn(s.seeMoreButton, 'mx-auto mt-6 lg:mr-0')}>
         <Button slim variant='clear'>
           <span>See more</span>
           <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">

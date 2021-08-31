@@ -1,13 +1,29 @@
 .root {
   position: static;
-  @apply flex items-center px-6 bg-primary-transparent;
+  @apply flex items-center px-6 bg-primary-transparent
+  lg:px-10 xl:px-16;
   height: 72px;
   backdrop-filter: blur(100px);
 
-  ul {
-    li {
-      display: flex;
-      align-items: center;
+  .nav {
+    @apply bg-primary rounded-2xl px-3.5 py-2;
+
+    .navItems {
+      @apply flex space-x-2 cursor-pointer;
+    }
+
+    .navItem {
+      @apply px-3 py-1 rounded-2xl;
+    }
+    .navItem:hover {
+      @apply bg-accents-1;
+    }
+    .navItem:active {
+      @apply bg-accents-2;
+    }
+
+    .navItem:last-child {
+      @apply bg-accents-2;
     }
   }
 }

@@ -1,9 +1,11 @@
 .root {
-  @apply mt-5 bg-primary-transparent flex justify-between items-center px-7;
+  @apply w-full mt-5 px-7 bg-primary-transparent
+  flex justify-between items-center
+  lg:mt-7 lg:px-16;
   height: 90px;
 }
 
 .links {
-  @apply space-x-7;
+  @apply space-x-7 lg:space-x-16;
   font-family: 'Montserrat', sans-serif;
 }
