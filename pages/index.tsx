@@ -1,10 +1,10 @@
 import {Layout} from "@components/common/Layout/Layout";
-import {educationData, LandingView} from "@components/LandingView/LandingView";
+import {LandingView} from "@components/LandingView/LandingView";
 
 export default function Home() {
   return (
     <Layout>
-      <LandingView post={educationData}/>
+      <LandingView/>
     </Layout>
   )
 }
