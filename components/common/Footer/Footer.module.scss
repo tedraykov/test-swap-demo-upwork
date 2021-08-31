@@ -1,0 +1,9 @@
+.root {
+  @apply mt-5 bg-primary-transparent flex justify-between items-center px-7;
+  height: 90px;
+}
+
+.links {
+  @apply space-x-7;
+  font-family: 'Montserrat', sans-serif;
+}

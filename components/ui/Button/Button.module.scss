@@ -1,0 +1,26 @@
+.root {
+ @apply p-3 rounded-2xl text-primary;
+ font-family: 'Averta-Semibold', sans-serif;
+}
+
+.filled {
+ @apply bg-primary;
+}
+
+.outline {
+ @apply border border-secondary;
+}
+
+.clear {
+ @apply px-1;
+}
+
+.warning {
+ @apply border border-red text-red;
+}
+
+.slim {
+ @apply text-xs;
+ font-family: 'Averta', sans-serif;
+ font-weight: 600;
+}

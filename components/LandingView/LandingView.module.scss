@@ -1,0 +1,57 @@
+.root {
+  @apply mx-auto flex flex-col justify-center px-5 space-y-5 mt-6 lg:flex-row lg:space-y-0 lg:space-x-11;
+  max-width: 1400px;
+}
+
+.contentCard {
+  @apply my-3;
+
+  border: 0.8px solid rgba(150, 150, 150, 0.1);
+
+  p {
+    font-size: 11px;
+    line-height: 17px;
+    text-align: justify;
+  }
+
+  .barCard {
+    @apply p-2;
+  }
+}
+
+.seeMoreButton {
+  button {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    font-size: 9px;
+    margin-left: auto;
+    padding: 0;
+
+    span {
+      @apply mr-2 text-blue;
+    }
+  }
+}
+
+.barHeader {
+ @apply flex justify-between text-sm font-bold;
+}
+
+.bar {
+  @apply rounded-xl mt-3;
+  height: 5px;
+}
+
+.voteTableHeader {
+  @apply text-xs text-accents-6 font-semibold px-4;
+}
+
+.cell {
+  @apply border-b border-accents-3 py-4;
+  font-size: 14px;
+
+  &>span {
+    @apply mx-4;
+  }
+}

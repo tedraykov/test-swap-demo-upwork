@@ -1,0 +1,13 @@
+.root {
+  position: static;
+  @apply flex items-center px-6 bg-primary-transparent;
+  height: 72px;
+  backdrop-filter: blur(100px);
+
+  ul {
+    li {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
