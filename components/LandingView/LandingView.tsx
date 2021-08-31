@@ -74,7 +74,7 @@ export const LandingView: FC = () => {
   return (
     <div className={s.root}>
       <Button color='transparent' className={s.backButton}>
-        <img src="arrow-Left.svg" alt=""/>
+        <img src="arrow-Left.svg" alt="" height={24}/>
       </Button>
       <PostView post={postData}/>
       <Votes vote={votesData}/>

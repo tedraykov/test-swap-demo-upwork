@@ -3,13 +3,19 @@
   justify-center px-5 space-y-5 mt-6
   lg:flex-row lg:space-y-0 lg:space-x-11
   lg:mt-10 lg:mx-16
-  xl:mx-32;
+  xl:mx-auto;
   max-width: 1400px;
 }
 
 .backButton {
+  @apply hidden lg:block;
   margin-right: -1rem;
   height: fit-content;
+
+  img {
+    min-height: 24px;
+    min-width: 24px;
+  }
 }
 
 .contentCard {
